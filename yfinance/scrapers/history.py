@@ -31,7 +31,7 @@ class PriceHistory:
                 start=None, end=None, prepost=False, actions=True,
                 auto_adjust=True, back_adjust=False, repair=False, keepna=False,
                 proxy=None, rounding=False, timeout=10,
-                raise_errors=False) -> pd.DataFrame:
+                raise_errors=False, keep_timestamps=False ) -> pd.DataFrame:
         """
         :Parameters:
             period : str
@@ -72,6 +72,9 @@ class PriceHistory:
                 Default is 10 seconds.
             raise_errors: bool
                 If True, then raise errors as Exceptions instead of logging.
+            keep_timestamps: bool
+                Keep original timestamps delivered by Yahoo?
+                Default is True
         """
         logger = utils.get_yf_logger()
         proxy = proxy or self.proxy
@@ -251,7 +254,7 @@ class PriceHistory:
             return utils.empty_df()
 
         # parse quotes
-        quotes = utils.parse_quotes(data["chart"]["result"][0])
+        quotes = utils.parse_quotes(data["chart"]["result"][0], keep_timestamps)
         # Yahoo bug fix - it often appends latest price even if after end date
         if end and not quotes.empty:
             endDt = pd.to_datetime(end, unit='s')

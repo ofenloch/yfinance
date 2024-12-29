@@ -491,7 +491,19 @@ def back_adjust(data):
     return df[[c for c in col_order if c in df.columns]]
 
 
-def parse_quotes(data):
+def parse_quotes(data, keep_timestamps: bool=False) -> _pd.DataFrame:
+    """
+    Parse raw Yahoo JSON data and make a decent pandas DataFrame of it.
+    
+    :Paramters:
+        data (_type_): raw JSON data to be parsed
+        keep_timestamps: bool
+                Keep original timestamps delivered by Yahoo?
+                Default is True
+
+    :Returns:
+        _pd.DataFrame: DataFrame with the OHLC data
+    """
     timestamps = data["timestamp"]
     ohlc = data["indicators"]["quote"][0]
     volumes = ohlc["volume"]
@@ -504,12 +516,23 @@ def parse_quotes(data):
     if "adjclose" in data["indicators"]:
         adjclose = data["indicators"]["adjclose"][0]["adjclose"]
 
-    quotes = _pd.DataFrame({"Open": opens,
-                            "High": highs,
-                            "Low": lows,
-                            "Close": closes,
-                            "Adj Close": adjclose,
-                            "Volume": volumes})
+    if keep_timestamps == True:
+        quotes = _pd.DataFrame({"Open": opens,
+                                "High": highs,
+                                "Low": lows,
+                                "Close": closes,
+                                "Adj Close": adjclose,
+                                "Volume": volumes,
+                                "Timestamp": timestamps})
+        # make sure the timestamps are integers
+        quotes["Timestamp"] = quotes["Timestamp"].astype("longlong")
+    else:
+        quotes = _pd.DataFrame({"Open": opens,
+                                "High": highs,
+                                "Low": lows,
+                                "Close": closes,
+                                "Adj Close": adjclose,
+                                "Volume": volumes})
 
     quotes.index = _pd.to_datetime(timestamps, unit="s")
     quotes.sort_index(inplace=True)
