@@ -81,7 +81,7 @@ class PriceHistory:
 
         interval_user = interval
         period_user = period
-        if repair and interval in ['5d', '1wk', '1mo', '3mo']:
+        if repair and interval in ["5d", "1wk", "1mo", "3mo"]:
             # Yahoo's way of adjusting mutiday intervals is fundamentally broken.
             # Have to fetch 1d, adjust, then resample.
             if interval == '5d':
@@ -235,10 +235,9 @@ class PriceHistory:
         elif "chart" not in data or data["chart"]["result"] is None or not data["chart"]["result"] or not data["chart"]["result"][0]["indicators"]["quote"][0]:
             _exception = YFPricesMissingError(self.ticker, _price_data_debug)
             fail = True
-        elif period is not None and period not in self._history_metadata["validRanges"]:
-            # even if timestamp is in the data, the data doesn't encompass the period requested
-            # User provided a bad period. The minimum should be '1d', but sometimes Yahoo accepts '1h'.
-            _exception = YFInvalidPeriodError(self.ticker, period, self._history_metadata['validRanges'])
+        elif period and period not in self._history_metadata['validRanges'] and not utils.is_valid_period_format(period):
+            # User provided a bad period
+            _exception = YFInvalidPeriodError(self.ticker, period, ", ".join(self._history_metadata['validRanges']))
             fail = True
 
         if fail:
@@ -252,6 +251,13 @@ class PriceHistory:
             if self._reconstruct_start_interval is not None and self._reconstruct_start_interval == interval:
                 self._reconstruct_start_interval = None
             return utils.empty_df()
+
+        # Process custom periods
+        if period and period not in self._history_metadata.get("validRanges", []):
+            end = int(_time.time())
+            start = _datetime.date.fromtimestamp(end)
+            start -= utils._interval_to_timedelta(period)
+            start -= _datetime.timedelta(days=4)
 
         # parse quotes
         quotes = utils.parse_quotes(data["chart"]["result"][0], keep_timestamps)
