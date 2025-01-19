@@ -502,7 +502,7 @@ def parse_quotes(data, keep_timestamps: bool=False) -> _pd.DataFrame:
         data (_type_): raw JSON data to be parsed
         keep_timestamps: bool
                 Keep original timestamps delivered by Yahoo?
-                Default is True
+                Default is False
 
     :Returns:
         _pd.DataFrame: DataFrame with the OHLC data
