@@ -1,7 +1,9 @@
+import json as _json
 import datetime as _datetime
 import dateutil as _dateutil
 import logging
 import numpy as np
+import os as _os
 import pandas as pd
 from math import isclose
 import time as _time
@@ -187,6 +189,15 @@ class PriceHistory:
                                    "the issue. Thank you for your patience.")
 
             data = data.json()
+
+            json_file_name = f"{_os.getcwd()}/yfinance_history_{interval}_{period}__{self.ticker}__.json"
+            try:
+                with open(json_file_name, "w") as fp:
+                    _json.dump(data, fp, indent=2)
+            except Exception as e:
+                with open(json_file_name, "w") as fp:
+                    _json.dump(f"{'data': { 'exception': '{e}' } }", fp, indent=2)
+
         # Special case for rate limits
         except YFRateLimitError:
             raise
