@@ -525,10 +525,9 @@ def parse_quotes(data, keep_timestamps: bool=False) -> _pd.DataFrame:
                                 "Low": lows,
                                 "Close": closes,
                                 "Adj Close": adjclose,
-                                "Volume": volumes,
-                                "Timestamp": timestamps})
-        # make sure the timestamps are integers
-        quotes["Timestamp"] = quotes["Timestamp"].astype("longlong")
+                                "Volume": volumes})
+        quotes.index = timestamps
+        quotes = quotes.sort_index() # python:S6734
     else:
         quotes = _pd.DataFrame({"Open": opens,
                                 "High": highs,
@@ -537,8 +536,8 @@ def parse_quotes(data, keep_timestamps: bool=False) -> _pd.DataFrame:
                                 "Adj Close": adjclose,
                                 "Volume": volumes})
 
-    quotes.index = _pd.to_datetime(timestamps, unit="s")
-    quotes.sort_index(inplace=True)
+        quotes.index = _pd.to_datetime(timestamps, unit="s")
+        quotes = quotes.sort_index() # python:S6734
 
     return quotes
 
