@@ -274,9 +274,13 @@ class PriceHistory:
         quotes = utils.parse_quotes(data["chart"]["result"][0], keep_timestamps)
         # Yahoo bug fix - it often appends latest price even if after end date
         if end and not quotes.empty:
-            endDt = pd.to_datetime(end, unit='s')
-            if quotes.index[quotes.shape[0] - 1] >= endDt:
-                quotes = quotes.iloc[0:quotes.shape[0] - 1]
+            if keep_timestamps:
+                if quotes.index[quotes.shape[0] - 1] >= end:
+                    quotes = quotes.iloc[0:quotes.shape[0] - 1]
+            else:
+                endDt = pd.to_datetime(end, unit='s')
+                if quotes.index[quotes.shape[0] - 1] >= endDt:
+                    quotes = quotes.iloc[0:quotes.shape[0] - 1]
         if quotes.empty:
             msg = f'{self.ticker}: yfinance received OHLC data: EMPTY'
         elif len(quotes) == 1:
@@ -310,8 +314,9 @@ class PriceHistory:
         currency = self._history_metadata["currency"]
 
         # Note: ordering is important. If you change order, run the tests!
-        quotes = utils.set_df_tz(quotes, params["interval"], tz_exchange)
-        quotes = utils.fix_Yahoo_dst_issue(quotes, params["interval"])
+        if not keep_timestamps:
+            quotes = utils.set_df_tz(quotes, params["interval"], tz_exchange)
+            quotes = utils.fix_Yahoo_dst_issue(quotes, params["interval"])
         intraday = params["interval"][-1] in ("m", 'h')
         if not prepost and intraday and "tradingPeriods" in self._history_metadata:
             tps = self._history_metadata["tradingPeriods"]
