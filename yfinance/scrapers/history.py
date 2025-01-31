@@ -76,7 +76,7 @@ class PriceHistory:
                 If True, then raise errors as Exceptions instead of logging.
             keep_timestamps: bool
                 Keep original timestamps delivered by Yahoo?
-                Default is True
+                Default is False
         """
         logger = utils.get_yf_logger()
         proxy = proxy or self.proxy
