@@ -7,3 +7,5 @@ Function **parse_quotes** will add an extra column to the generated DataFram con
 
 
 ![changes in branch keep-timestamps](keep-timestamps.png)
+
+I suggested this with a more advanced solution in pull  request [#2252](https://github.com/ranaroussi/yfinance/pull/2252), but [ValueRaider](https://github.com/ValueRaider) thinks, we don't need this.
