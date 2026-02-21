@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/yfinance.css?v=6f22274e" />
   
@@ -46,7 +46,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="yfinance.download" href="api/yfinance.download.html" />
-    <link rel="prev" title="Industry" href="api/yfinance.Industry.html" />
+    <link rel="prev" title="yfinance.screen" href="api/yfinance.screen.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -121,8 +121,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/logo-light.webp" class="logo__image only-light" alt="yfinance - Home"/>
+    <script>document.write(`<img src="../_static/logo-dark.webp" class="logo__image only-dark" alt="yfinance - Home"/>`);</script>
   
-    <p class="title logo__title">yfinance</p>
   
 </a></div>
     
@@ -351,13 +357,25 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.news.html">yfinance.Ticker.news</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="yfinance.market.html">Market</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/yfinance.Market.html">Market</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="yfinance.calendars.html">Calendars</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/yfinance.Calendars.html">Calendars</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="yfinance.financials.html">Financials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.get_income_stmt.html">yfinance.Ticker.get_income_stmt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.income_stmt.html">yfinance.Ticker.income_stmt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.quarterly_income_stmt.html">yfinance.Ticker.quarterly_income_stmt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.ttm_income_stmt.html">yfinance.Ticker.ttm_income_stmt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.get_balance_sheet.html">yfinance.Ticker.get_balance_sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.balance_sheet.html">yfinance.Ticker.balance_sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.get_cashflow.html">yfinance.Ticker.get_cashflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.cashflow.html">yfinance.Ticker.cashflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.quarterly_cashflow.html">yfinance.Ticker.quarterly_cashflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.ttm_cashflow.html">yfinance.Ticker.ttm_cashflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.get_earnings.html">yfinance.Ticker.get_earnings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.earnings.html">yfinance.Ticker.earnings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.calendar.html">yfinance.Ticker.calendar</a></li>
@@ -406,8 +424,14 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Ticker.mutualfund_holders.html">yfinance.Ticker.mutualfund_holders</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="yfinance.search.html">Search &amp; News</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="yfinance.search.html">Search &amp; Lookup</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Search.html">Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/yfinance.Lookup.html">Lookup</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="yfinance.websocket.html">WebSocket</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/yfinance.WebSocket.html">WebSocket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/yfinance.AsyncWebSocket.html">AsyncWebSocket</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="yfinance.sector_industry.html">Sector and Industry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -415,10 +439,14 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.Industry.html">Industry</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="yfinance.screener.html">Screener &amp; Query</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/yfinance.EquityQuery.html">EquityQuery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/yfinance.FundQuery.html">FundQuery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/yfinance.screen.html">yfinance.screen</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Functions and Utilities</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.download.html">yfinance.download</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/yfinance.EquityQuery.html">EquityQuery</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/yfinance.Screener.html">Screener</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.enable_debug_mode.html">yfinance.enable_debug_mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/yfinance.set_tz_cache_location.html">yfinance.set_tz_cache_location</a></li>
 </ul>
@@ -493,36 +521,10 @@ document.write(`
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/yfinance.download.html#yfinance.download" title="yfinance.download"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download</span></code></a>(tickers[, start, end, actions, ...])</p></td>
-<td><p>Download yahoo tickers :Parameters:     tickers : str, list         List of tickers to download     period : str         Valid periods: 1d,5d,1mo,3mo,6mo,1y,2y,5y,10y,ytd,max         Either Use period parameter or use start and end     interval : str         Valid intervals: 1m,2m,5m,15m,30m,60m,90m,1h,1d,5d,1wk,1mo,3mo         Intraday data cannot extend last 60 days     start: str         Download start date string (YYYY-MM-DD) or _datetime, inclusive. Default is 99 years ago         E.g. for start=&quot;2020-01-01&quot;, the first data point will be on &quot;2020-01-01&quot;     end: str         Download end date string (YYYY-MM-DD) or _datetime, exclusive. Default is now         E.g. for end=&quot;2023-01-01&quot;, the last data point will be on &quot;2022-12-31&quot;     group_by : str         Group by 'ticker' or 'column' (default)     prepost : bool         Include Pre and Post market data in results?         Default is False     auto_adjust: bool         Adjust all OHLC automatically? Default is True     repair: bool         Detect currency unit 100x mixups and attempt repair         Default is False     keepna: bool         Keep NaN rows returned by Yahoo?         Default is False     actions: bool         Download dividend + stock splits data. Default is False     threads: bool / int         How many threads to use for mass downloading. Default is True     ignore_tz: bool         When combining from different timezones, ignore that part of datetime. Default depends on interval. Intraday = False. Day+ = True. proxy: str         Optional. Proxy server URL scheme. Default is None     rounding: bool         Optional. Round values to 2 decimal places?     timeout: None or float         If not None stops waiting for a response after given number of         seconds. (Can also be a fraction of a second e.g. 0.01)     session: None or Session         Optional. Pass your own session object to be used for all requests     multi_level_index: bool         Optional. Always return a MultiIndex DataFrame? Default is True.</p></td>
+<td><p>Download yahoo tickers :Parameters:     tickers : str, list         List of tickers to download     period : str         Valid periods: 1d,5d,1mo,3mo,6mo,1y,2y,5y,10y,ytd,max         Default: 1mo         Either Use period parameter or use start and end     interval : str         Valid intervals: 1m,2m,5m,15m,30m,60m,90m,1h,1d,5d,1wk,1mo,3mo         Intraday data cannot extend last 60 days     start: str         Download start date string (YYYY-MM-DD) or _datetime, inclusive. Default is 99 years ago         E.g. for start=&quot;2020-01-01&quot;, the first data point will be on &quot;2020-01-01&quot;     end: str         Download end date string (YYYY-MM-DD) or _datetime, exclusive. Default is now         E.g. for end=&quot;2023-01-01&quot;, the last data point will be on &quot;2022-12-31&quot;     group_by : str         Group by 'ticker' or 'column' (default)     prepost : bool         Include Pre and Post market data in results?         Default is False     auto_adjust: bool         Adjust all OHLC automatically? Default is True     repair: bool         Detect currency unit 100x mixups and attempt repair         Default is False     keepna: bool         Keep NaN rows returned by Yahoo?         Default is False     actions: bool         Download dividend + stock splits data. Default is False     threads: bool / int         How many threads to use for mass downloading. Default is True     ignore_tz: bool         When combining from different timezones, ignore that part of datetime. Default depends on interval. Intraday = False. Day+ = True. rounding: bool         Optional. Round values to 2 decimal places?     timeout: None or float         If not None stops waiting for a response after given number of         seconds. (Can also be a fraction of a second e.g. 0.01)     session: None or Session         Optional. Pass your own session object to be used for all requests     multi_level_index: bool         Optional. Always return a MultiIndex DataFrame? Default is True.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</section>
-<section id="query-market-data">
-<h2>Query Market Data<a class="headerlink" href="#query-market-data" title="Link to this heading">#</a></h2>
-<p>The <cite>Sector</cite> and <cite>Industry</cite> modules allow you to access the sector and industry information.</p>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/yfinance.EquityQuery.html#yfinance.EquityQuery" title="yfinance.EquityQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EquityQuery</span></code></a>(operator, operand)</p></td>
-<td><p>The <cite>EquityQuery</cite> class constructs filters for stocks based on specific criteria such as region, sector, exchange, and peer group.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/yfinance.Screener.html#yfinance.Screener" title="yfinance.Screener"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Screener</span></code></a>([session, proxy])</p></td>
-<td><p>The <cite>Screener</cite> class is used to execute the queries and return the filtered results.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><code class="xref py py-attr docutils literal notranslate"><span class="pre">EquityQuery.valid_operand_fields</span></code></dt><dd><p>supported operand values for query</p>
-</dd>
-<dt><code class="xref py py-attr docutils literal notranslate"><span class="pre">EquityQuery.valid_eq_operand_map</span></code></dt><dd><p>supported <cite>EQ query operand parameters</cite></p>
-</dd>
-<dt><code class="xref py py-attr docutils literal notranslate"><span class="pre">Screener.predefined_bodies</span></code></dt><dd><p>supported predefined screens</p>
-</dd>
-</dl>
 </div>
 </section>
 <section id="enable-debug-mode">
@@ -562,12 +564,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="api/yfinance.Industry.html"
+       href="api/yfinance.screen.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Industry</p>
+        <p class="prev-next-title">yfinance.screen</p>
       </div>
     </a>
     <a class="right-next"
@@ -598,7 +600,6 @@ document.write(`
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-market-data">Download Market Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#query-market-data">Query Market Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-debug-mode">Enable Debug Mode</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-timezone-cache-location">Set Timezone Cache Location</a></li>
 </ul>
@@ -638,7 +639,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2017-2019 Ran Aroussi.
+      © Copyright 2017-2025 Ran Aroussi.
       <br/>
     
   </p>

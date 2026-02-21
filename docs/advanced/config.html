@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Reporting a Bug &#8212; yfinance</title>
+    <title>Config &#8212; yfinance</title>
   
   
   
@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/yfinance.css?v=6f22274e" />
   
@@ -42,10 +42,11 @@
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'development/reporting_bug';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'advanced/config';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Contribution to the documentation" href="documentation.html" />
+    <link rel="next" title="Caching" href="caching.html" />
+    <link rel="prev" title="Logging" href="logging.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -120,8 +121,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/logo-light.webp" class="logo__image only-light" alt="yfinance - Home"/>
+    <script>document.write(`<img src="../_static/logo-dark.webp" class="logo__image only-dark" alt="yfinance - Home"/>`);</script>
   
-    <p class="title logo__title">yfinance</p>
   
 </a></div>
     
@@ -135,8 +142,8 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../advanced/index.html">
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
     Advanced
   </a>
 </li>
@@ -149,8 +156,8 @@
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="index.html">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/index.html">
     Development
   </a>
 </li>
@@ -255,8 +262,8 @@ document.write(`
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../advanced/index.html">
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
     Advanced
   </a>
 </li>
@@ -269,8 +276,8 @@ document.write(`
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="index.html">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/index.html">
     Development
   </a>
 </li>
@@ -323,9 +330,11 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributiong to yfinance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documentation.html">Contribution to the documentation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Reporting a Bug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="caching.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi_level_columns.html">Multi-Level Column Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="price_repair.html">Price Repair</a></li>
 </ul>
 </div>
 </nav></div>
@@ -364,9 +373,9 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Development</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Advanced</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Reporting a Bug</li>
+    <li class="breadcrumb-item active" aria-current="page">Config</li>
   </ul>
 </nav>
 </div>
@@ -383,9 +392,58 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="reporting-a-bug">
-<h1>Reporting a Bug<a class="headerlink" href="#reporting-a-bug" title="Link to this heading">#</a></h1>
-<p>Open a new issue on our <a class="reference external" href="https://github.com/ranaroussi/yfinance/issues">GitHub</a>.</p>
+  <section id="config">
+<h1>Config<a class="headerlink" href="#config" title="Link to this heading">#</a></h1>
+<p><cite>yfinance</cite> has a new global config for sharing common values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">yf</span><span class="o">.</span><span class="n">config</span>
+<span class="go">{</span>
+<span class="go">  &quot;network&quot;: {</span>
+<span class="go">    &quot;proxy&quot;: null,</span>
+<span class="go">    &quot;retries&quot;: 0</span>
+<span class="go">  },</span>
+<span class="go">  &quot;debug&quot;: {</span>
+<span class="go">    &quot;hide_exceptions&quot;: true,</span>
+<span class="go">    &quot;logging&quot;: false</span>
+<span class="go">  }</span>
+<span class="go">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">yf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">network</span>
+<span class="go">{</span>
+<span class="go">  &quot;proxy&quot;: null,</span>
+<span class="go">  &quot;retries&quot;: 0</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<section id="network">
+<h2>Network<a class="headerlink" href="#network" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>proxy</strong> - Set proxy for all yfinance data fetches.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">yf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="s2">&quot;PROXY_SERVER&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>retries</strong> - Configure automatic retry for transient network errors. The retry mechanism uses exponential backoff (1s, 2s, 4s…).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">yf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">retries</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="debug">
+<h2>Debug<a class="headerlink" href="#debug" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>hide_exceptions</strong> - Set to <cite>False</cite> to stop yfinance hiding exceptions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">yf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">debug</span><span class="o">.</span><span class="n">hide_exceptions</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>logging</strong> - Set to <cite>True</cite> to enable verbose debug logging.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">yf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">debug</span><span class="o">.</span><span class="n">logging</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
 </section>
 
 
@@ -399,13 +457,22 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="documentation.html"
+       href="logging.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Contribution to the documentation</p>
+        <p class="prev-next-title">Logging</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="caching.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Caching</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -418,9 +485,22 @@ document.write(`
 
 
   <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network">Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debug">Debug</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/development/reporting_bug.rst.txt">
+    <a href="../_sources/advanced/config.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
@@ -451,7 +531,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2017-2019 Ran Aroussi.
+      © Copyright 2017-2025 Ran Aroussi.
       <br/>
     
   </p>
