@@ -525,7 +525,8 @@ def parse_quotes(data):
                             "Low": lows,
                             "Close": closes,
                             "Adj Close": adjclose,
-                            "Volume": volumes})
+                            "Volume": volumes,
+                            "Timestamp": timestamps})
 
     quotes.index = _pd.to_datetime(timestamps, unit="s")
     quotes.sort_index(inplace=True)
